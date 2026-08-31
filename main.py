@@ -16,55 +16,6 @@ openrouter_client = OpenRouter(
     server_url=os.environ.get("OPENROUTER_SERVER_URL", "https://ai.hackclub.com/proxy/v1")
 )
 
-USER_CACHE = {}
-LAST_CACHE_UPDATE = 0
-CACHE_TTL = 600  # Cache duration in seconds (10 minutes)
-
-def refresh_user_cache(client):
-    global USER_CACHE, LAST_CACHE_UPDATE
-    now = time.time()
-    
-    # Return early if cache is still fresh
-    if USER_CACHE and (now - LAST_CACHE_UPDATE < CACHE_TTL):
-        return
-
-    new_cache = {}
-    cursor = None
-
-    while True:
-        try:
-            response = client.users_list(cursor=cursor, limit=200)
-            for member in response.get("members", []):
-                uid = member.get("id")
-                prof = member.get("profile", {})
-                
-                # Gather all possible matching handles/names
-                candidate_names = {
-                    member.get("name", "").lower(),
-                    prof.get("display_name", "").lower(),
-                    prof.get("display_name_normalized", "").lower(),
-                    prof.get("real_name", "").lower(),
-                    prof.get("real_name_normalized", "").lower(),
-                }
-                
-                # Store mappings for fast lookup
-                for name in candidate_names:
-                    if name:
-                        new_cache[name] = uid
-                        
-            cursor = response.get("response_metadata", {}).get("next_cursor")
-            if not cursor:
-                break
-                
-        except Exception as e:
-            # Handle rate-limiting during pagination loop
-            if "ratelimited" in str(e):
-                time.sleep(3)
-                continue
-            raise e
-
-    USER_CACHE = new_cache
-    LAST_CACHE_UPDATE = now
 
 JOKES = [
     "Why do programmers prefer dark mode? Because light attracts bugs.",
