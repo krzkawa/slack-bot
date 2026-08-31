@@ -7,12 +7,12 @@ from openrouter import OpenRouter
 import time
 import requests
 
-SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "xoxb-2210535565-11940934761189-Tm84Wdw6R2i1LVx2TgTjTWky")
-SLACK_APP_TOKEN = os.environ.get("SLACK_APP_TOKEN", "xapp-1-A0BTWLJ7RFE-11938792508531-9cabb58a22610cfd4975479a83d6c2349d2012a14cf5e3e7c65faf73bcf748c4")
+SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "**********")
+SLACK_APP_TOKEN = os.environ.get("SLACK_APP_TOKEN", "******")
 app = App(token=SLACK_BOT_TOKEN)
 
 openrouter_client = OpenRouter(
-    api_key=os.environ.get("OPENROUTER_API_KEY", "sk-hc-v1-ab5b59b6ba2e46ec8828dd5d79ed1b03eebc18af539046cb83ad0aea672389c1"),
+    api_key=os.environ.get("OPENROUTER_API_KEY", "***********"),
     server_url=os.environ.get("OPENROUTER_SERVER_URL", "https://ai.hackclub.com/proxy/v1")
 )
 
