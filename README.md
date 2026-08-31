@@ -1,30 +1,28 @@
 # krzbot 
 
-A feature-packed, lightweight Slack bot built using Python ([Slack Bolt](https://slack.dev/bolt-python)), integrated with [OpenRouter](https://openrouter.ai) for AI capabilities and [Open-Meteo](https://open-meteo.com/) for real-time weather forecasts.
+A Slack bot built using Python ([Slack Bolt](https://slack.dev/bolt-python)).
 
 ---
 
-## ✨ Features
+## Features
 
-- **AI Assistance (`/krzbot-ask-ai`)**: Query large language models (powered by OpenRouter / LLMs) directly from Slack.
-- **Weather Forecasts (`/weather`)**: Get current weather metrics (temperature, humidity, wind, precipitation) for any city using Open-Meteo—no external API keys required.
-- **Joke Generator (`/krzbot-tell-joke`)**: Delivers developer and programming jokes from a local collection.
-- **Socket Mode Integration**: Connects securely to Slack without requiring public endpoints, webhooks, or NGINX/ngrok configuration.
-- **Systemd Ready**: Runs easily as a background Linux daemon with automatic restarts.
+- **AI Assistance (`/krzbot-ask-ai`)**: Ask AI straight from slack!!!
+- **Weather Forecasts (`/krzbot-weather`)**: Get current weather (temperature, humidity, wind, precipitation) for any city using Open-Meteo!!!
+- **Joke Generator (`/krzbot-tell-joke`)**: Sends developer or programming jokes!!!
 
 ---
 
-## 🛠️ Slash Commands
+## Slash Commands
 
 | Command | Arguments | Description |
 | :--- | :--- | :--- |
-| `/krzbot-ask-ai` | `[prompt]` | Asks an AI model a question set up using ai.hackclub.com. |
-| `/weather` | `[city_name]` | Returns current weather, temperature, humidity, and wind speed. |
+| `/krzbot-ask-ai` | `[prompt]` | Asks an AI model a question, set up using ai.hackclub.com. |
+| `/krzbot-weather` | `[city_name]` | Returns current weather, temperature, humidity, and wind speed. |
 | `/krzbot-tell-joke` | *None* | Sends a random programming or engineering joke to the channel. |
 
 ---
 
-## Prerequisite Setup (Slack Dashboard)
+## Setup in Slack's Dashboard
 
 Before running the application, set up your bot on the [Slack API Portal](https://api.slack.com/apps):
 
@@ -44,7 +42,7 @@ Before running the application, set up your bot on the [Slack API Portal](https:
 5. **Create Slash Commands**:
    * Go to **Slash Commands** and register:
      * `/krzbot-ask-ai`
-     * `/weather`
+     * `/krzbot-weather`
      * `/krzbot-tell-joke`
 
 ---
