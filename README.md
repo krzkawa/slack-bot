@@ -9,7 +9,7 @@ A custom Slack bot built with Python (`slack-bolt`) using Socket Mode. Features 
 * **`/krzbot-ask-ai <prompt>`**  
   Queries language models through the OpenRouter API and posts the answer directly to the channel.
 
-* **`/weather <city>`**  
+* **`/krzbot-weather <city>`**  
   Looks up coordinates using Open-Meteo Geocoding, then fetches current metrics including temperature, feels-like temperature, humidity, wind speed, and precipitation.
 
 * **`/krzbot-tell-joke`**  
